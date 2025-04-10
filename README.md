@@ -7,11 +7,6 @@ This repository provides a comprehensive evaluation framework for various BGP (B
 - [Introduction](#introduction)
 - [Dataset](#dataset)
 - [Methods](#methods)
-- [Setup](#setup)
-- [Running the Evaluation](#running-the-evaluation)
-- [Results](#results)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Introduction
@@ -31,4 +26,8 @@ The repository includes implementations of the following BGP anomaly detection m
 2. **ML-Based Models**: RoLL+, Ada.Boost, MLP and SVM 
 3. **DL-Based Models**: ISP Self-Operated, BEAM, RNN and MSLSTM
 
-You can find the relevant code for Ada.Boost, MLP, SVM, RNN, and MSLSTM in the \textit{MSLSTM} . Each method's file includes the environment required to run the method, as well as the code for detection and evaluation.
+You can find the relevant code for Ada.Boost, MLP, SVM, RNN, and MSLSTM in the MSLSTM . Each method's file includes the environment required to run the method, as well as the code for detection and evaluation.
+
+##Contact
+
+If you have any questions, you can contact xiaolan4279@proton.me
