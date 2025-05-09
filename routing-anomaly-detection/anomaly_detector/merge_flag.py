@@ -96,7 +96,7 @@ def merge_flags(flag_dir, output_file, event_info):
     all_flags_data = []
     
     # 从文件夹名称获取事件ID和对应的列名
-    event_id = flag_dir.name.split('.')[0]  # 去掉.flags.post后缀
+    event_id = flag_dir.name.split('.')[0]  # 去掉.flags后缀
     try:
         event_type, column_name = get_event_type_and_column(event_id)
         logging.info(f"事件 {event_id} 类型为 {event_type}，将保留 {column_name} 列")
@@ -184,14 +184,14 @@ def process_all_flag_folders():
         logging.error(f"读取异常事件信息文件失败: {str(e)}")
         return
     
-    # 获取所有以.flags.post结尾的文件夹
-    flag_folders = [f for f in base_dir.iterdir() if f.is_dir() and f.name.endswith('.flags.post')]
+    # 获取所有以.flags结尾的文件夹
+    flag_folders = [f for f in base_dir.iterdir() if f.is_dir() and f.name.endswith('.flags')]
     
     if not flag_folders:
-        logging.warning("没有找到.flags.post结尾的文件夹")
+        logging.warning("没有找到.flags结尾的文件夹")
         return
         
-    logging.info(f"找到 {len(flag_folders)} 个.flags.post文件夹需要处理")
+    logging.info(f"找到 {len(flag_folders)} 个.flags文件夹需要处理")
     
     # 创建存储所有评估结果的列表
     all_metrics = []
@@ -202,7 +202,7 @@ def process_all_flag_folders():
             output_dir = base_dir / "merged_flags"
             output_dir.mkdir(exist_ok=True)
             
-            # 生成输出文件名（去掉.flags.post后缀）
+            # 生成输出文件名（去掉.flags后缀）
             output_file = output_dir / f"{folder.name[:-11]}_merged.csv"
             
             logging.info(f"处理文件夹: {folder.name}")
